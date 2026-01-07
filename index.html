@@ -3,10 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Alex Rivera — Product Designer (Fintech)</title>
+  <title>Alex Rivera — Product Designer for Fintech Teams</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
   <style>
     :root {
       --bg: #f8fafc;
@@ -17,44 +19,22 @@
       --border: #e2e8f0;
       --shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
       --radius: 18px;
-      --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --mono: "JetBrains Mono", monospace;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
-      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: "Inter", system-ui, sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
     }
 
-    img {
-      max-width: 100%;
-      height: auto;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: underline;
-      text-underline-offset: 4px;
-    }
-
-    a:hover {
-      color: var(--accent);
-    }
-
-    a:focus-visible,
-    button:focus-visible,
-    input:focus-visible,
-    textarea:focus-visible {
-      outline: 3px solid rgba(29, 78, 216, 0.35);
-      outline-offset: 3px;
-      border-radius: 8px;
-    }
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: var(--accent); }
 
     .container {
       max-width: 1120px;
@@ -65,148 +45,108 @@
     header {
       position: sticky;
       top: 0;
-      z-index: 10;
-      background: rgba(248, 250, 252, 0.9);
+      background: rgba(248,250,252,.9);
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+      border-bottom: 1px solid var(--border);
+      z-index: 10;
     }
 
     .nav {
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
       padding: 18px 0;
-    }
-
-    .nav-logo {
-      font-weight: 700;
-      letter-spacing: -0.02em;
     }
 
     .nav-links {
       display: flex;
-      align-items: center;
       gap: 20px;
+      align-items: center;
       font-weight: 500;
     }
 
-    .nav-links a {
-      text-decoration: underline;
-      font-size: 0.95rem;
-    }
-
     .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
       padding: 12px 20px;
       border-radius: 999px;
-      border: 1px solid transparent;
       font-weight: 600;
-      text-decoration: none;
+      border: 1px solid transparent;
       cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .btn-primary {
       background: var(--accent);
       color: #fff;
-      box-shadow: 0 10px 20px rgba(29, 78, 216, 0.2);
+      box-shadow: 0 10px 20px rgba(29,78,216,.25);
     }
 
     .btn-secondary {
       background: #eef2f7;
-      color: var(--text);
-      border: 1px solid #e2e8f0;
+      border: 1px solid var(--border);
     }
 
-    .btn:hover {
-      transform: translateY(-1px);
-    }
-
-    main section {
-      padding: 80px 0;
-    }
+    main section { padding: 96px 0; }
 
     .hero {
-      padding-top: 96px;
+      padding-top: 120px;
     }
 
     .hero-content {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 40px;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 48px;
       align-items: center;
+    }
+
+    h1 {
+      font-size: clamp(2.8rem, 4vw, 3.8rem);
+      line-height: 1.1;
+      margin: 16px 0;
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: 1.1rem;
+      margin-bottom: 28px;
     }
 
     .eyebrow {
       font-family: var(--mono);
-      font-size: 0.8rem;
+      font-size: .8rem;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
+      letter-spacing: .12em;
       color: var(--muted);
-    }
-
-    h1 {
-      font-size: clamp(2.6rem, 4vw, 3.6rem);
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      margin: 16px 0 18px;
-    }
-
-    .lead {
-      font-size: 1.1rem;
-      color: var(--muted);
-      margin-bottom: 28px;
     }
 
     .proof-strip {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 16px;
-      margin-top: 32px;
     }
 
     .proof-item {
       background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 14px;
       padding: 16px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
       box-shadow: var(--shadow);
     }
 
     .proof-item span {
-      display: block;
       font-family: var(--mono);
-      font-size: 0.75rem;
-      color: var(--muted);
+      font-size: .75rem;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
+      color: var(--muted);
     }
 
     .proof-item strong {
       display: block;
       margin-top: 6px;
-      font-size: 1rem;
     }
 
-    .section-title {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 32px;
-    }
-
-    .section-title h2 {
-      margin: 0;
-      font-size: clamp(1.8rem, 3vw, 2.4rem);
-    }
-
-    .section-title p {
-      max-width: 520px;
-      color: var(--muted);
-      margin: 8px 0 0;
-    }
+    h2 { margin-bottom: 12px; }
 
     .cards {
       display: grid;
@@ -216,121 +156,26 @@
 
     .card {
       background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
       padding: 24px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
       box-shadow: var(--shadow);
       display: flex;
       flex-direction: column;
       gap: 14px;
     }
 
-    .card-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-
     .pill {
       font-family: var(--mono);
-      font-size: 0.7rem;
+      font-size: .7rem;
       padding: 6px 10px;
       border-radius: 999px;
       background: #e0e7ff;
       color: #1e3a8a;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
+      width: fit-content;
     }
 
-    .meta {
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .card a {
-      font-weight: 600;
-    }
-
-    .case-study {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 32px;
-      box-shadow: var(--shadow);
-      margin-bottom: 32px;
-    }
-
-    .snapshot {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 16px;
-      background: #f1f5f9;
-      border-radius: 16px;
-      padding: 20px;
-      margin-bottom: 24px;
-      border: 1px solid #e2e8f0;
-    }
-
-    .snapshot div {
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
-
-    .snapshot strong {
-      display: block;
-      color: var(--text);
-      margin-top: 6px;
-    }
-
-    .case-body {
-      display: grid;
-      gap: 18px;
-    }
-
-    .case-body h4 {
-      margin: 0 0 6px;
-    }
-
-    .case-body ul {
-      margin: 0;
-      padding-left: 18px;
-      color: var(--muted);
-    }
-
-    .callout {
-      background: #eef2ff;
-      border-radius: 14px;
-      padding: 16px;
-      font-size: 0.95rem;
-      color: #1e3a8a;
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 24px;
-    }
-
-    .about-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 22px;
-      box-shadow: var(--shadow);
-    }
-
-    .about-card h3 {
-      margin-top: 0;
-      font-size: 1.1rem;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 32px;
-      align-items: start;
-    }
+    .meta { color: var(--muted); font-size: .95rem; }
 
     form {
       display: grid;
@@ -338,20 +183,19 @@
     }
 
     label {
-      display: grid;
+      display: flex;
+      flex-direction: column;
       gap: 6px;
       font-weight: 600;
+      font-size: .9rem;
     }
 
-    input,
-    textarea {
-      width: 100%;
+    input, textarea {
       padding: 12px 14px;
       border-radius: 12px;
       border: 1px solid #dce3ec;
-      font-family: inherit;
       font-size: 1rem;
-      background: #fff;
+      font-family: inherit;
     }
 
     textarea {
@@ -360,391 +204,159 @@
     }
 
     footer {
-      padding: 40px 0 60px;
-      color: var(--muted);
-      font-size: 0.9rem;
       border-top: 1px solid var(--border);
+      padding: 48px 0;
       text-align: center;
-    }
-
-    .stack {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .chip {
-      font-family: var(--mono);
-      font-size: 0.78rem;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: #f1f5f9;
-      color: #475569;
-      border: 1px solid #e2e8f0;
+      color: var(--muted);
+      font-size: .9rem;
     }
 
     @media (max-width: 900px) {
-      .nav {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-      }
-
-      .nav-links {
-        flex-wrap: wrap;
-        gap: 12px 16px;
-      }
-
-      .section-title {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-
-    @media (max-width: 600px) {
-      main section {
-        padding: 64px 0;
-      }
-
-      .hero {
-        padding-top: 72px;
-      }
-
-      .btn {
-        width: 100%;
-      }
-
-      .hero-actions {
-        display: grid;
-        gap: 12px;
-      }
+      .hero-content { grid-template-columns: 1fr; }
     }
   </style>
 </head>
+
 <body>
-  <header>
-    <div class="container nav">
-      <div class="nav-logo">Alex Rivera</div>
-      <nav class="nav-links" aria-label="Primary">
-        <a href="#home">Home</a>
-        <a href="#work">Work</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+
+<header>
+  <div class="container nav">
+    <strong>Alex Rivera</strong>
+    <nav class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a class="btn btn-secondary" href="#contact">Download Resume</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section id="home" class="hero">
+  <div class="container hero-content">
+    <div>
+      <div class="eyebrow">Minimalist · Proof-First Portfolio</div>
+      <h1>Product Designer for Fintech Teams, Improving Onboarding and Activation</h1>
+      <p class="lead">
+        I design compliant, conversion-driven fintech products that help users move through onboarding,
+        risk, and billing flows with clarity and confidence.
+      </p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a class="btn btn-primary" href="#work">View Work</a>
         <a class="btn btn-secondary" href="#contact">Download Resume</a>
-      </nav>
+      </div>
     </div>
-  </header>
 
-  <main>
-    <section id="home" class="hero">
-      <div class="container hero-content">
-        <div>
-          <div class="eyebrow">Minimalist Proof-First Portfolio</div>
-          <h1>Alex Rivera — Product Designer (Fintech)</h1>
-          <p class="lead">Designing compliant, conversion-driven fintech experiences that move users from onboarding to activation in fewer steps.</p>
-          <div class="hero-actions stack">
-            <a class="btn btn-primary" href="#work">View Work</a>
-            <a class="btn btn-secondary" href="#contact">Download Resume</a>
-          </div>
-        </div>
-        <div>
-          <div class="proof-strip">
-            <div class="proof-item">
-              <span>Proof</span>
-              <strong>8 shipped products</strong>
-            </div>
-            <div class="proof-item">
-              <span>Focus</span>
-              <strong>Fintech-led portfolios</strong>
-            </div>
-            <div class="proof-item">
-              <span>Specialty</span>
-              <strong>B2B onboarding</strong>
-            </div>
-            <div class="proof-item">
-              <span>Systems</span>
-              <strong>Design systems</strong>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <div class="proof-strip">
+      <div class="proof-item"><span>Proof</span><strong>8 shipped fintech products</strong></div>
+      <div class="proof-item"><span>Focus</span><strong>Onboarding, risk, billing</strong></div>
+      <div class="proof-item"><span>Specialty</span><strong>B2B operational UX</strong></div>
+      <div class="proof-item"><span>Systems</span><strong>Design systems & delivery</strong></div>
+    </div>
+  </div>
+</section>
 
-    <section id="work">
-      <div class="container">
-        <div class="section-title">
-          <div>
-            <h2>Featured Work</h2>
-            <p>Three shipped fintech programs with measurable outcomes. Each links to a focused case study below.</p>
-          </div>
-        </div>
-        <div class="cards">
-          <article class="card">
-            <div class="card-header">
-              <div>
-                <h3>Ledgerline Onboarding Revamp</h3>
-                <div class="meta">2023 · B2B treasury platform</div>
-              </div>
-              <span class="pill">Shipped</span>
-            </div>
-            <p class="meta">Problem: Drop-off after KYC step due to unclear compliance copy.</p>
-            <p class="meta">Ownership: Led IA + onboarding flows.</p>
-            <p class="meta">Outcome: Improved activation by ~X% (baseline unknown—replace).</p>
-            <a href="#case-ledgerline">View case study</a>
-          </article>
-          <article class="card">
-            <div class="card-header">
-              <div>
-                <h3>VaultPay Risk Dashboard</h3>
-                <div class="meta">2022 · Fraud &amp; risk ops</div>
-              </div>
-              <span class="pill">Shipped</span>
-            </div>
-            <p class="meta">Problem: Analysts lacked unified visibility into flagged transactions.</p>
-            <p class="meta">Ownership: Led workflow mapping + dashboard UI.</p>
-            <p class="meta">Outcome: Reduced triage time by ~X% (baseline unknown—replace).</p>
-            <a href="#case-vaultpay">View case study</a>
-          </article>
-          <article class="card">
-            <div class="card-header">
-              <div>
-                <h3>Northbridge Billing Stack</h3>
-                <div class="meta">2021 · Subscription payments</div>
-              </div>
-              <span class="pill">Shipped</span>
-            </div>
-            <p class="meta">Problem: Pricing changes required engineering support every cycle.</p>
-            <p class="meta">Ownership: Led admin tooling + pricing IA.</p>
-            <p class="meta">Outcome: Self-serve billing setup up ~X% (baseline unknown—replace).</p>
-            <a href="#case-northbridge">View case study</a>
-          </article>
-        </div>
-      </div>
-    </section>
+<section id="work">
+  <div class="container">
+    <span class="eyebrow">Selected Work</span>
+    <h2>Shipped Fintech Work with Clear Ownership</h2>
+    <p class="meta">
+      Real products I led end-to-end — from problem definition to shipped outcomes in production environments.
+    </p>
 
-    <section id="case-studies">
-      <div class="container">
-        <div class="section-title">
-          <div>
-            <h2>Case Studies</h2>
-            <p>Advanced Portfolio Websites Ref… Each study is structured to show proof, decisions, and outcomes fast.</p>
-          </div>
-        </div>
+    <div class="cards">
+      <article class="card">
+        <span class="pill">Shipped</span>
+        <h3>Ledgerline — Onboarding Revamp</h3>
+        <p class="meta">Redesigned compliance-heavy onboarding to reduce post-KYC drop-off.</p>
+        <p class="meta"><strong>Ownership:</strong> IA, UX writing, onboarding flows</p>
+        <a href="#contact">View case study →</a>
+      </article>
 
-        <article id="case-ledgerline" class="case-study">
-          <h3>Ledgerline Onboarding Revamp</h3>
-          <div class="snapshot">
-            <div>Role<strong>Lead Product Designer</strong></div>
-            <div>Team Size<strong>PM + 6 engineers</strong></div>
-            <div>Timeframe<strong>10 weeks</strong></div>
-            <div>Platform<strong>Web app</strong></div>
-            <div>Status<strong>Shipped</strong></div>
-          </div>
-          <div class="case-body">
-            <div>
-              <h4>Problem</h4>
-              <p class="meta">Compliance-heavy onboarding caused a 2-step abandonment spike after KYC document upload.</p>
-            </div>
-            <div>
-              <h4>Ownership</h4>
-              <p class="meta">Owned IA, UX writing, onboarding flows, and handoff specs across design and compliance.</p>
-            </div>
-            <div>
-              <h4>Approach</h4>
-              <ul>
-                <li>Audited analytics and support tickets to isolate friction points.</li>
-                <li>Mapped compliance requirements into a simplified task flow.</li>
-                <li>Prototyped 3 variants with focus on progress clarity.</li>
-                <li>Aligned copy with legal for transparent outcomes.</li>
-                <li>Partnered with engineering on post-KYC success states.</li>
-              </ul>
-            </div>
-            <div>
-              <h4>Key Decisions</h4>
-              <ul>
-                <li>Added pre-KYC checklist to reduce surprise requirements.</li>
-                <li>Bundled optional steps into a post-approval flow.</li>
-              </ul>
-            </div>
-            <div>
-              <h4>Outcomes</h4>
-              <p class="meta">Improved activation by ~X% (baseline unknown—replace). Reduced support tickets by ~X%.</p>
-            </div>
-            <div class="callout">Takeaway: Transparency and staging compliance work increased trust and throughput.</div>
-          </div>
-        </article>
+      <article class="card">
+        <span class="pill">Shipped</span>
+        <h3>VaultPay — Risk Dashboard</h3>
+        <p class="meta">Unified fraud signals into a single analyst workflow.</p>
+        <p class="meta"><strong>Ownership:</strong> Workflow research, dashboard IA</p>
+        <a href="#contact">View case study →</a>
+      </article>
 
-        <article id="case-vaultpay" class="case-study">
-          <h3>VaultPay Risk Dashboard</h3>
-          <div class="snapshot">
-            <div>Role<strong>Product Designer</strong></div>
-            <div>Team Size<strong>PM + 4 engineers</strong></div>
-            <div>Timeframe<strong>8 weeks</strong></div>
-            <div>Platform<strong>Desktop web</strong></div>
-            <div>Status<strong>Shipped</strong></div>
-          </div>
-          <div class="case-body">
-            <div>
-              <h4>Problem</h4>
-              <p class="meta">Analysts triangulated fraud signals across 4 tools with slow alert routing.</p>
-            </div>
-            <div>
-              <h4>Ownership</h4>
-              <p class="meta">Led workflow research, dashboard IA, and interaction design for case routing.</p>
-            </div>
-            <div>
-              <h4>Approach</h4>
-              <ul>
-                <li>Shadowed analysts to map time-to-decision steps.</li>
-                <li>Created a unified alert queue with priority chips.</li>
-                <li>Designed modular cards for case evidence review.</li>
-                <li>Worked with data science on confidence scoring visibility.</li>
-              </ul>
-            </div>
-            <div>
-              <h4>Key Decisions</h4>
-              <ul>
-                <li>Surface confidence score within list view for faster triage.</li>
-                <li>Standardize case notes for audit readiness.</li>
-              </ul>
-            </div>
-            <div>
-              <h4>Outcomes</h4>
-              <p class="meta">Reduced triage time by ~X% (baseline unknown—replace). Increased SLA compliance by ~X%.</p>
-            </div>
-            <div class="callout">Takeaway: Decision density matters more than screen density for risk ops.</div>
-          </div>
-        </article>
+      <article class="card">
+        <span class="pill">Shipped</span>
+        <h3>Northbridge — Billing Stack</h3>
+        <p class="meta">Enabled self-serve pricing changes without engineering support.</p>
+        <p class="meta"><strong>Ownership:</strong> Admin UX, pricing architecture</p>
+        <a href="#contact">View case study →</a>
+      </article>
+    </div>
+  </div>
+</section>
 
-        <article id="case-northbridge" class="case-study">
-          <h3>Northbridge Billing Stack</h3>
-          <div class="snapshot">
-            <div>Role<strong>Senior Product Designer</strong></div>
-            <div>Team Size<strong>PM + 5 engineers</strong></div>
-            <div>Timeframe<strong>12 weeks</strong></div>
-            <div>Platform<strong>Web + admin</strong></div>
-            <div>Status<strong>Shipped</strong></div>
-          </div>
-          <div class="case-body">
-            <div>
-              <h4>Problem</h4>
-              <p class="meta">Pricing changes required manual engineering support, delaying launches.</p>
-            </div>
-            <div>
-              <h4>Ownership</h4>
-              <p class="meta">Owned admin workflows, pricing IA, and documentation layout.</p>
-            </div>
-            <div>
-              <h4>Approach</h4>
-              <ul>
-                <li>Interviewed finance and ops teams to map pricing workflows.</li>
-                <li>Built a self-serve pricing configurator in low-fi.</li>
-                <li>Established guardrails for discount and renewal approvals.</li>
-                <li>Partnered with engineering on migration sequencing.</li>
-              </ul>
-            </div>
-            <div>
-              <h4>Key Decisions</h4>
-              <ul>
-                <li>Separated billing logic from plan packaging for clarity.</li>
-                <li>Introduced versioning to reduce plan errors.</li>
-              </ul>
-            </div>
-            <div>
-              <h4>Outcomes</h4>
-              <p class="meta">Self-serve billing setup up ~X% (baseline unknown—replace). Fewer pricing errors by ~X%.</p>
-            </div>
-            <div class="callout">Takeaway: Empowering ops teams reduces engineering dependency and revenue risk.</div>
-          </div>
-        </article>
-      </div>
-    </section>
+<section id="about">
+  <div class="container">
+    <span class="eyebrow">Background</span>
+    <h2>Experience, Focus, and How I Work</h2>
+    <p class="meta">
+      A concise overview of my background, domains, and working style for product and design leaders.
+    </p>
 
-    <section id="about">
-      <div class="container">
-        <div class="section-title">
-          <div>
-            <h2>About</h2>
-            <p>Advanced Portfolio Websites Ref… Credibility-first overview for recruiters and hiring managers.</p>
-          </div>
-        </div>
-        <div class="about-grid">
-          <div class="about-card">
-            <h3>Experience</h3>
-            <p class="meta">8+ years designing fintech products across onboarding, risk, and billing platforms.</p>
-            <div class="stack">
-              <span class="chip">Payments</span>
-              <span class="chip">Compliance</span>
-              <span class="chip">Risk Ops</span>
-            </div>
-          </div>
-          <div class="about-card">
-            <h3>Domains</h3>
-            <p class="meta">B2B SaaS, embedded finance, treasury tooling, and enterprise onboarding.</p>
-            <div class="stack">
-              <span class="chip">B2B onboarding</span>
-              <span class="chip">Enterprise UX</span>
-            </div>
-          </div>
-          <div class="about-card">
-            <h3>Strengths</h3>
-            <p class="meta">Proof-first storytelling, cross-functional alignment, and systemized UX.</p>
-            <div class="stack">
-              <span class="chip">Design systems</span>
-              <span class="chip">UX writing</span>
-            </div>
-          </div>
-          <div class="about-card">
-            <h3>Work Style</h3>
-            <p class="meta">Clear documentation, fast iteration loops, and direct stakeholder updates.</p>
-            <div class="stack">
-              <span class="chip">Async updates</span>
-              <span class="chip">Weekly demos</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <div class="cards">
+      <article class="card">
+        <h3>Experience</h3>
+        <p class="meta">8+ years designing fintech products across onboarding, risk, and billing.</p>
+      </article>
+      <article class="card">
+        <h3>Domains</h3>
+        <p class="meta">B2B SaaS, embedded finance, treasury tooling, enterprise onboarding.</p>
+      </article>
+      <article class="card">
+        <h3>Strengths</h3>
+        <p class="meta">Proof-first storytelling, systemized UX, cross-functional alignment.</p>
+      </article>
+      <article class="card">
+        <h3>Availability</h3>
+        <p class="meta">Open to senior product design roles in fintech and B2B SaaS.</p>
+      </article>
+    </div>
+  </div>
+</section>
 
-    <section id="contact">
-      <div class="container">
-        <div class="section-title">
-          <div>
-            <h2>Contact</h2>
-            <p>Advanced Portfolio Websites Ref… Short form + direct contact points. I respond within 24 hours.</p>
-          </div>
-        </div>
-        <div class="contact-grid">
-          <form>
-            <label>
-              Name
-              <input type="text" name="name" placeholder="Your name" />
-            </label>
-            <label>
-              Email
-              <input type="email" name="email" placeholder="you@company.com" />
-            </label>
-            <label>
-              Message
-              <textarea name="message" placeholder="Share role details, timeline, and key needs."></textarea>
-            </label>
-            <button class="btn btn-primary" type="submit">Send message</button>
-          </form>
-          <div class="about-card">
-            <h3>Direct channels</h3>
-            <p class="meta">Email: alex.rivera@email.com</p>
-            <p class="meta">LinkedIn: linkedin.com/in/alexrivera</p>
-            <p class="meta">Location: Remote · GMT-5</p>
-            <p class="meta">Response time: within 24 hours.</p>
-            <a href="#home">Back to top</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
+<section id="contact">
+  <div class="container">
+    <span class="eyebrow">Get in touch</span>
+    <h2>Let’s Talk</h2>
+    <p class="meta">
+      Reach out for role discussions, portfolio reviews, or collaboration. I typically respond within 24 hours.
+    </p>
 
-  <footer>
-    <div class="container">© 2024 Alex Rivera. Minimalist Proof-First portfolio for fintech design roles.</div>
-  </footer>
+    <div class="cards">
+      <article class="card">
+        <form>
+          <label>Name<input type="text" placeholder="Your name"></label>
+          <label>Email<input type="email" placeholder="you@company.com"></label>
+          <label>Message<textarea placeholder="Share role details, timeline, and needs"></textarea></label>
+          <button class="btn btn-primary" type="submit">Send message</button>
+        </form>
+      </article>
+
+      <article class="card">
+        <h3>Direct channels</h3>
+        <p class="meta">Email: alex.rivera@email.com</p>
+        <p class="meta">LinkedIn: linkedin.com/in/alexrivera</p>
+        <p class="meta">Remote · GMT-5</p>
+        <a href="#home">Back to top</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  © 2024 Alex Rivera · Minimalist proof-first portfolio · Last updated 2024
+</footer>
+
 </body>
 </html>
